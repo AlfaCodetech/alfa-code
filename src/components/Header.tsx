@@ -32,9 +32,10 @@ const Header = () => {
 
   const navLinks = [
     { name: 'Início', href: '#home' },
-    { name: 'Serviços', href: '#services' },
-    { name: 'Sobre Nós', href: '#about' },
-    { name: 'Portfólio', href: '#portfolio' },
+    { name: 'Tecnologias', href: '#technologies' },
+    { name: 'Soluções', href: '#solutions' },
+    { name: 'Cases', href: '#portfolio' },
+    { name: 'Blog', href: '#blog' },
     { name: 'Contato', href: '#contact' },
   ];
 
@@ -48,8 +49,11 @@ const Header = () => {
       <div className="container mx-auto container-padding">
         <div className="flex items-center justify-between">
           <a href="#home" className="relative z-50">
-            <h1 className="text-xl font-bold md:text-2xl">
-              <span className="text-gradient">Alfa</span>CodeTech
+            <h1 className="text-xl font-bold md:text-2xl font-mono">
+              <span className="text-tech-accent">&lt;</span>
+              <span className="text-tech-primary">Tech</span>
+              <span className="text-tech-secondary">Hub</span>
+              <span className="text-tech-accent">/&gt;</span>
             </h1>
           </a>
 
@@ -88,7 +92,7 @@ const Header = () => {
                 <li key={link.name}>
                   <a 
                     href={link.href}
-                    className="relative text-sm font-medium text-foreground/80 hover:text-foreground transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+                    className="relative text-sm font-medium text-foreground/80 hover:text-tech-primary transition-colors after:absolute after:bottom-[-4px] after:left-0 after:h-0.5 after:w-0 after:bg-tech-primary after:transition-all after:duration-300 hover:after:w-full"
                   >
                     {link.name}
                   </a>
@@ -113,7 +117,7 @@ const Header = () => {
                 <a 
                   href={link.href}
                   onClick={closeMenu}
-                  className="text-2xl font-medium text-foreground transition-colors hover:text-primary"
+                  className="text-2xl font-medium text-foreground transition-colors hover:text-tech-primary"
                 >
                   {link.name}
                 </a>

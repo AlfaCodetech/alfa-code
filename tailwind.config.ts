@@ -25,6 +25,7 @@ export default {
 		extend: {
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
+				mono: ['Roboto Mono', 'monospace'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
@@ -69,6 +70,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				tech: {
+					primary: '#6366f1',       // Indigo
+					secondary: '#4f46e5',     // Deeper indigo
+					accent: '#10b981',        // Emerald
+					dark: '#111827',          // Gray-900
+					light: '#f9fafb',         // Gray-50
+					muted: '#9ca3af'          // Gray-400
 				}
 			},
 			borderRadius: {

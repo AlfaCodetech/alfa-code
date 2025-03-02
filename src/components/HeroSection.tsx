@@ -6,9 +6,10 @@ const HeroSection = () => {
   const headingRef = useRef<HTMLHeadingElement>(null);
   const subheadingRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLAnchorElement>(null);
+  const codeBlockRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const elements = [headingRef.current, subheadingRef.current, ctaRef.current];
+    const elements = [headingRef.current, subheadingRef.current, ctaRef.current, codeBlockRef.current];
     
     // Set initial opacity to 0
     elements.forEach((el) => {
@@ -31,11 +32,18 @@ const HeroSection = () => {
     }, 600);
     
     setTimeout(() => {
+      if (codeBlockRef.current) {
+        codeBlockRef.current.style.opacity = '1';
+        codeBlockRef.current.style.transform = 'translateY(0)';
+      }
+    }, 900);
+    
+    setTimeout(() => {
       if (ctaRef.current) {
         ctaRef.current.style.opacity = '1';
         ctaRef.current.style.transform = 'translateY(0)';
       }
-    }, 900);
+    }, 1200);
   }, []);
 
   return (
@@ -50,29 +58,69 @@ const HeroSection = () => {
       
       {/* Content Container */}
       <div className="container mx-auto container-padding relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 
-            ref={headingRef}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight transition-all duration-1000 transform translate-y-8"
-          >
-            Soluções Tecnológicas para o 
-            <span className="text-gradient block mt-2">Sucesso da Sua Empresa</span>
-          </h1>
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-8">
+          <div className="w-full md:w-1/2 text-left">
+            <h1 
+              ref={headingRef}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight transition-all duration-1000 transform translate-y-8"
+            >
+              Transforme seu negócio com
+              <span className="text-gradient block"> Soluções Tecnológicas</span>
+            </h1>
+            
+            <p 
+              ref={subheadingRef}
+              className="text-lg md:text-xl text-foreground/80 mb-8 transition-all duration-1000 delay-300 transform translate-y-8"
+            >
+              Desenvolvimento web moderno, aplicações móveis e soluções em nuvem para a era digital.
+            </p>
+            
+            <div 
+              ref={codeBlockRef}
+              className="code-block mb-8 transition-all duration-1000 delay-600 transform translate-y-8"
+            >
+              <pre>
+                <code>
+                  <span className="text-tech-accent">const</span> <span className="text-tech-primary">techhub</span> = {"{"}
+                  <br />  innovation: <span className="text-green-400">'constant'</span>,
+                  <br />  solutions: <span className="text-green-400">'scalable'</span>,
+                  <br />  delivery: <span className="text-green-400">'on-time'</span>
+                  <br />{"}"}
+                </code>
+              </pre>
+            </div>
+            
+            <a 
+              href="#technologies" 
+              ref={ctaRef}
+              className="btn btn-primary inline-block transition-all duration-1000 delay-900 transform translate-y-8"
+            >
+              Explorar Tecnologias
+            </a>
+          </div>
           
-          <p 
-            ref={subheadingRef}
-            className="text-lg md:text-xl text-foreground/80 mb-8 max-w-xl mx-auto transition-all duration-1000 delay-300 transform translate-y-8"
-          >
-            Desenvolvemos sistemas e aplicações que impulsionam seus negócios.
-          </p>
-          
-          <a 
-            href="#services" 
-            ref={ctaRef}
-            className="inline-block px-8 py-4 bg-primary text-white rounded-full font-medium hover:shadow-lg hover:bg-primary/90 transition-all duration-300 transform translate-y-8"
-          >
-            Conheça Nossos Serviços
-          </a>
+          <div className="w-full md:w-1/2 flex justify-center">
+            <div className="relative w-full max-w-md">
+              <div className="absolute -top-10 -right-10 w-64 h-64 bg-tech-primary/10 rounded-full filter blur-2xl"></div>
+              <div className="absolute -bottom-8 -left-8 w-48 h-48 bg-tech-accent/10 rounded-full filter blur-xl"></div>
+              <div className="relative z-10 p-2 rounded-lg border border-white/20 shadow-xl backdrop-blur-sm">
+                <div className="bg-tech-dark rounded-lg overflow-hidden">
+                  <div className="flex items-center space-x-2 px-4 py-2 border-b border-gray-700">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    <div className="ml-2 text-xs text-white/70 font-mono">index.html</div>
+                  </div>
+                  <div className="p-4 text-sm font-mono text-white">
+                    <div className="text-gray-400">&lt;<span className="text-tech-accent">div</span> <span className="text-tech-primary">class</span>=<span className="text-green-400">"app"</span>&gt;</div>
+                    <div className="pl-4 text-gray-400">&lt;<span className="text-tech-accent">h1</span>&gt;<span className="text-white">Hello World</span>&lt;/<span className="text-tech-accent">h1</span>&gt;</div>
+                    <div className="pl-4 text-gray-400">&lt;<span className="text-tech-accent">p</span>&gt;<span className="text-white">Welcome to TechHub</span>&lt;/<span className="text-tech-accent">p</span>&gt;</div>
+                    <div className="text-gray-400">&lt;/<span className="text-tech-accent">div</span>&gt;</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
